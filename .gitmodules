@@ -1,0 +1,3 @@
+[submodule "InFaceExtendedFW-MatrixCompletion"]
+	path = InFaceExtendedFW-MatrixCompletion
+	url = https://github.com/paulgrigas/InFaceExtendedFW-MatrixCompletion.git
