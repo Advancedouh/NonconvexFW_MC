@@ -10,8 +10,8 @@ $$\eqalign{
 where $\bar X$ is the observation and $\Omega$ is a collection of indices and $\sigma > 0$. The methods are compared with the [InFaceExtendedFW-MatrixCompletion](https://github.com/paulgrigas/InFaceExtendedFW-MatrixCompletion) solver hosted by Paul Grigas. 
 
 A paper presenting more details on the implementations can be found here: 
-> ["Frank-Wolfe type methods for nonconvex
-inequality-constrained problems"](https://arxiv.org/pdf/2112.14404.pdf).
+> [Frank-Wolfe type methods for nonconvex
+inequality-constrained problems](https://arxiv.org/pdf/2112.14404.pdf).
 
 <br />
 
