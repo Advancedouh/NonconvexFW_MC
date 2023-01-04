@@ -1,4 +1,4 @@
-function Xnew = update_svd_simlaIF(Xold, u_add, v_add)
+function Xnew = update_svd_asIF(Xold, u_add, v_add)
 %  update the svd decomposition for rank 1 updation matrix
 %  The lines in this function are a part of the "update_svd.m" file in the InFaceExtended-MatrixCompletion solver
 

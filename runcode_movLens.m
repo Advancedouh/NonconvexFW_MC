@@ -1,24 +1,24 @@
 clear;
 
-% %% download the movielens zip file;
-% url = 'http://files.grouplens.org/datasets/movielens/ml-10m.zip';
-% filename = 'ml-10m.zip';
-% options = weboptions('Timeout',Inf);
-% websave(filename, url, options);
-% clear options
-% 
-% fprintf('ml-10 downloaded. \n')
-% 
-% unzip('ml-10m.zip', 'ml-10m');
+%% download the movielens zip file;
+url = 'http://files.grouplens.org/datasets/movielens/ml-10m.zip';
+filename = 'ml-10m.zip';
+options = weboptions('Timeout',Inf);
+websave(filename, url, options);
+clear options
+
+fprintf('ml-10 downloaded. \n')
+
+unzip('ml-10m.zip', 'ml-10m');
 
 %% read rating.dat; 
-%   This data reading part is from read_movielens_10M.m file of InFaceExtendedFW-MatrixCompletion
+%%%   This data reading part is from read_movielens_10M.m file of InFaceExtendedFW-MatrixCompletion
 M = dlmread('ml-10m/ml-10M100K/ratings.dat');
 
 irow = M(:, 1); % users
 jcol = M(:, 3); % movies
 
-% fix irow, jcol
+%%% fix irow, jcol
 [unique_rows, irow_ind, unique_rows_ind] = unique(irow);
 [unique_cols, jcol_ind, unique_cols_ind] = unique(jcol);
 
@@ -35,7 +35,7 @@ Omega = sub2ind([nrow,ncol],irow,jcol);
 Xobs_vec = M(:, 5);
 no_obs = length(Xobs_vec);
 
-% center the data
+%%% center the data
 centerMatRows = [1:no_obs, 1:no_obs]';
 centerMatCols = [irow; nrow + jcol];
 centerMat = sparse(centerMatRows, centerMatCols, ones(2*no_obs, 1));
@@ -78,39 +78,39 @@ mat_comp_instance.jcol_test = test_data.jcol;
 %% value of sigma in the models; named as delta in Freund's paper and codes
 mat_comp_instance.delta = 2.5932;      
 
-% %% The InFace direction method 
-% options = struct();
-% options.verbose = 1;
-% options.rel_opt_TOL = -Inf;
-% options.abs_opt_TOL = -Inf;
-% options.bound_slack = 10^-6;
-% options.time_limit = 600;
-% options.max_iter = 40000;
-% options.prox_grad_tol = 10^-5;
-% 
-% options.gamma_1 = 0;
-% options.gamma_2 = Inf;
-% options.last_toward = 0;
-% options.rank_peak = 0;
-% 
-% options.pre_start_full = 0;
-% 
-% options.test_error_basic = 1;
-% 
-% options.svd_options.large_type = 'eigs';
-% options.svd_options.maxiter = 5000;
-% options.svd_options.tol = 10^-8;
-% options.svd_options.vector_stopping = 0;
-% options.svd_options.svd_test = 0;
-% 
-% options.alg_type = 'InFace';
-% fprintf('Start of the InFaceExtendedFW method.\n')
-% tstart1 = tic;
-% [final_solnIF_0Inf, historyIF_0Inf] = InFace_Extended_FW_sparse(mat_comp_instance, @Away_step_standard_sparse, @update_svd, options);
-% t_IF_0Inf = toc(tstart1);
-% save InFaceResults.mat final_solnIF_0Inf historyIF_0Inf t_IF_0Inf
+%%% The InFace direction method 
+options = struct();
+options.verbose = 1;
+options.rel_opt_TOL = -Inf;
+options.abs_opt_TOL = -Inf;
+options.bound_slack = 10^-6;
+options.time_limit = 600;
+options.max_iter = 40000;
+options.prox_grad_tol = 10^-5;
 
-%% The nonconvex FW and AFW method
+options.gamma_1 = 0;
+options.gamma_2 = Inf;
+options.last_toward = 0;
+options.rank_peak = 0;
+
+options.pre_start_full = 0;
+
+options.test_error_basic = 1;
+
+options.svd_options.large_type = 'eigs';
+options.svd_options.maxiter = 5000;
+options.svd_options.tol = 10^-8;
+options.svd_options.vector_stopping = 0;
+options.svd_options.svd_test = 0;
+
+options.alg_type = 'InFace';
+fprintf('Start of the InFaceExtendedFW method.\n')
+tstart1 = tic;
+[final_solnIF_0Inf, historyIF_0Inf] = InFace_Extended_FW_sparse(mat_comp_instance, @Away_step_standard_sparse, @update_svd, options);
+t_IF_0Inf = toc(tstart1);
+save InFaceResults.mat final_solnIF_0Inf historyIF_0Inf t_IF_0Inf
+
+%%% The nonconvex FW and AFW method
 clear options
 m = 69878;
 n = 10677;
@@ -125,7 +125,6 @@ sigma = 2.5932;
 options = struct();
 options.tol = 1e-6;
 options.maxiter = 40000;
-% options.maxtime = 14400;
 options.maxtime = 600;
 options.dsp = 1;
 

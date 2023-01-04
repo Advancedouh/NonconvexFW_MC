@@ -1,15 +1,15 @@
 clear;
 
-% %% download the movielens zip file;
-% url = 'http://files.grouplens.org/datasets/movielens/ml-10m.zip';
-% filename = 'ml-10m.zip';
-% options = weboptions('Timeout',Inf);
-% websave(filename, url, options);
-% clear options
-% 
-% fprintf('ml-10 downloaded. \n')
-% 
-% unzip('ml-10m.zip', 'ml-10m');
+%% download the movielens zip file;
+url = 'http://files.grouplens.org/datasets/movielens/ml-10m.zip';
+filename = 'ml-10m.zip';
+options = weboptions('Timeout',Inf);
+websave(filename, url, options);
+clear options
+
+fprintf('ml-10 downloaded. \n')
+
+unzip('ml-10m.zip', 'ml-10m');
 
 %% read rating.dat;
 %%%   This data reading part is from read_movielens_10M.m file of InFaceExtendedFW-MatrixCompletion
@@ -49,8 +49,6 @@ scale = norm(Xobs_vec, 2);
 Xobs_vec = Xobs_vec/norm(Xobs_vec, 2);
 
 save movielens_10M Omega irow jcol  Xobs_vec;  
-save reverse_paras  alpha beta scale;
-
 
 fprintf('The user/movie data processed. \n')
 
