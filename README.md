@@ -15,7 +15,7 @@ inequality-constrained problems](https://arxiv.org/pdf/2112.14404.pdf).
 
 <br />
 
-### How to use
+### First time setup
 
 1. Clone the repository: git clone **--recurse-submodules** https://github.com/zengliaoyuan/FW_MC.git
 2. Install the mex file for the running: 
