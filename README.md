@@ -24,7 +24,7 @@ inequality-constrained problems](https://arxiv.org/pdf/2112.14404.pdf).
 3. Change the working path to "./NonconvexFW_MC" in Matlab
 
 
-**Remark**: Our coding are done with Matlab 2017b for Windows. One have to change the formats of the pathes involved in the package if using Matlab for other operating systems.
+**Remark**: Our coding are done with Matlab 2017b for Windows. One has to change the formats of the pathes involved in the package if using Matlab for other operating systems.
 
 
 ### Runcodes for comparing FW, AFW and the InFaceExtendedFW-MatrixCompletion 
