@@ -17,11 +17,11 @@ inequality-constrained problems](https://arxiv.org/pdf/2112.14404.pdf).
 
 ### First time setup
 
-1. Clone the repository: git clone **--recurse-submodules** https://github.com/zengliaoyuan/FW_MC.git
+1. Clone the repository: git clone **--recurse-submodules** https://github.com/zengliaoyuan/NonconvexFW_MC.git
 2. Install the mex file for the running: 
-      - Set the current working path as "./InFaceExtendedFW-MatrixCompletion/solver" in Matlab
+      - Set the current working path as "./NonconvexFW_MC/InFaceExtendedFW-MatrixCompletion/solver" in Matlab
       - Excute in the command window: mex project_obs_UV.c
-3. Change the working path to "./FW_MC" in Matlab
+3. Change the working path to "./NonconvexFW_MC" in Matlab
 
 
 
