@@ -163,7 +163,6 @@ fprintf(fid, ' %6s & %20s & %20s & %20s \n', ...
 fprintf(fid, ' %6s & %8s & %8s & %8s & %8s & %8s & %8s & %8s & %8s & %8s  \\\\ \n', ...
     'time_ub',  'gap_rel', 'rank', 'RMSE', 'gap_rel', 'rank', 'RMSE', 'gap_rel', 'rank', 'RMSE');
 
-load('reverse_paras.mat')   % load the centering preprossing parameters
 timeframes = [1000; 1500; 2000; 2500; 3000];
 
 for tt = 1:length(timeframes)
