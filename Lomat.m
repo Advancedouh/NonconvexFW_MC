@@ -18,7 +18,6 @@ opts.normB = norm(Bhandle(ones(m+n, 1)), 1);
 opts.SIZE = m+n;
 opts.initialvec = eigifp_init;
 opts.tol = 1e-6;    % works only when dimension is large
-opts.outputYes = 1;
 [~, z] = eigifp(Ahandle, Bhandle, 1, opts);
 
 zBz = z'*Bhandle(z);
