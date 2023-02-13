@@ -1,15 +1,21 @@
 clear;
 
 %% download the movielens zip file;
-url = 'http://files.grouplens.org/datasets/movielens/ml-10m.zip';
-filename = 'ml-10m.zip';
-options = weboptions('Timeout',Inf);
-websave(filename, url, options);
-clear options
-
-fprintf('ml-10 downloaded. \n')
-
-unzip('ml-10m.zip', 'ml-10m');
+dir_exist = exist('ml-10m', 'dir');  % check the existence of the folder ml-10m
+dir_exist_7 = dir_exist - 7;
+if (dir_exist_7)
+    if ~isfile('ml-10m.zip')    % check the existence of the zip file ml-10m.zip
+        url = 'http://files.grouplens.org/datasets/movielens/ml-10m.zip';
+        filename = 'ml-10m.zip';
+        options = weboptions('Timeout',Inf);
+        websave(filename, url, options);
+        clear options
+        
+        fprintf('ml-10m.zip downloaded. \n')
+    end 
+        unzip('ml-10m.zip', 'ml-10m');
+        fprintf('ml-10m.zip unzipped. \n');
+end
 
 %% read rating.dat;
 %%%   This data reading part is from read_movielens_10M.m file of InFaceExtendedFW-MatrixCompletion
